@@ -1,0 +1,15 @@
+/.idea
+**/build
+**/sdkconfig
+.#*
+#*#
+interface/debug.log
+interface/sdkconfig.old
+interface/main/trace.txt
+hardware/*.s#?
+hardware/*.b#?
+hardware/*.job
+hardware/*.cam
+hardware/libraries/*.l#?
+.vscode/*
+**/.vscode/settings.json
