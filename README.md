@@ -1,9 +1,10 @@
-# MSGEQ7_8x8matrix
+# MSGEQ7 8x8matrix
 
 [![GitHub Discussions](https://img.shields.io/github/discussions/cvonk/MSGEQ7_8x8matrix)](https://github.com/cvonk/MSGEQ7_8x8matrix/discussions)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/cvonk/MSGEQ7_8x8matrix)
 ![GitHub](https://img.shields.io/github/license/cvonk/MSGEQ7_8x8matrix)
 
+Spectrum analyzer display using MSGEQ7, 8x8 bicolor matrix and Arduino Uno. Input is from a head phone jack or microphone.
 
 ## Demo
 
