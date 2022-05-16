@@ -80,20 +80,20 @@ The implementation changes the sound wave to an electrical signal; uses autocorr
 
 - Install the libraries.
 - Using the Arduino IDE or Visual Code
-    - Specify the board, COM port and baud rate.
+    - Specify the board and COM port.
     - Build and upload the sketch .
 
 ## Details
 
-The spectrum analyzer chip [MSI MSGEQ7](http://www.mix-sig.com/images/datasheets/MSGEQ7.pdf) measures the peak voltage in 7 frequency bands. These voltages are multiplexed on one output pin. To read each value, we use the `RESET` and `STROBE*` pins.
-  - A `RESET` pulse followed by a wait (≥72 μs) resets the multiplexer.
-  - On the first falling edge of the strobe signal, the 63 Hz output propagates to `OUT`. After ≥36 μs, this analog value can be read by the host.
-  - Each additional strobe falling edge advances the multiplexer one frequency band (63 &gt; 160 &gt; 400 &gt; 1,000 › 2,500 &gt; 6,250 &gt; 16,000 Hz) and this will repeat indefinitely.
-
-The multiplexer read rate is also the output decay time control. Each read decays that the value of that frequency band by approximately 10%.
-
-The timing is shown below, and includes some corrections compared to the datasheet [Maxfield](http://www.eetimes.com/author.asp?doc_id=1323030).
-
-With a load of 33 pF // 1 MΩ, the settle time of the output is 36 μs. The output impedance of the MSGEQ7 is 700 Ω. This is well under the Arduino recommended 10 kΩ for the A/D sample-and-hold capacitor to charge up.
+The [MSI MSGEQ7](http://www.mix-sig.com/images/datasheets/MSGEQ7.pdf) measures the peak voltage in 7 frequency bands. These voltages are multiplexed on one output pin. The timing is shown below, and includes some corrections compared to the datasheet [Maxfield](http://www.eetimes.com/author.asp?doc_id=1323030).
 
 ![timing](media/msqeq7-timing-copy.svg)
+
+To read each value, we use the `RESET` and `STROBE*` pins.
+  - A `RESET` pulse followed by a wait (≥72 μs) resets the multiplexer.
+  - On the first falling edge of the strobe signal, the 63 Hz band output propagates to `OUT`. After ≥36 μs, this analog value can be read by the host.
+  - Each additional strobe falling edge advances the multiplexer one frequency band (63 &raquo; 160 &raquo; 400 &raquo; 1,000 &raquo; 2,500 &raquo; 6,250 &raquo; 16,000 Hz) and this will repeat indefinitely.
+
+
+> Each read operation decays the value of that frequency band by approximately 10%. This means that if the Arduino reads less often, e.g. as a result of doing computations, the values read will be higher.
+
