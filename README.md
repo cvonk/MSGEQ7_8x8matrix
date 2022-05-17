@@ -46,6 +46,8 @@ A few notes:
 
 ### Bill of materials
 
+Make sure the MSGEQ7 is authentic. It should draw about \(0.8\,\rm{mA}\); pin 6 should have a reference voltage of about \(2.5\,\rm{V}\) and have an indentation near pin 1.
+
 | Name | Description | Suggested mfr and part# | Paid |
 |------|-------------|-------------------------|-----:|
 | PCB1 | Arduino Uno R3 or compatible | Adafruit 2488 | [$17.50](https://www.adafruit.com/product/2488)
