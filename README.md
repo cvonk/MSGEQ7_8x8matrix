@@ -41,6 +41,7 @@ Logic
 
 A few notes:
 - The 200 kΩ resistor is not an E12-series value. You can also make an equivalent value by 220 kΩ and 2.2 MΩ in parallel, or put two 100 kΩ in series.
+- If there is noise, try adding a 47 μF across the power rail.
 - I put the MSGEQ7 and its glue on a piece of proto board.  
   ![](media/msqeq7-breakout-copy.svg)
 
